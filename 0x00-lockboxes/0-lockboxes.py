@@ -6,6 +6,9 @@ def canUnlockAll(boxes):
     """method that determines if all the boxes can be opened."""
     n = len(boxes)
 
+    if n == 0:
+        return True
+
     opened = []
 
     for i in range(0, n):
@@ -19,6 +22,6 @@ def canUnlockAll(boxes):
 def openBox(boxes, opened, nBox):
     """Open boxes recursively."""
     for key in boxes[nBox]:
-        if opened[key] == False:
+        if key < len(boxes) and opened[key] == False:
             opened[key] = True
             openBox(boxes, opened, key)
