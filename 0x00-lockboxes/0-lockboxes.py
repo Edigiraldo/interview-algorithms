@@ -7,7 +7,7 @@ def canUnlockAll(boxes):
     n = len(boxes)
 
     if n == 0:
-        return True
+        return False
 
     opened = []
 
