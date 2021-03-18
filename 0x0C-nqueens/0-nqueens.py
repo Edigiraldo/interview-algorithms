@@ -59,14 +59,44 @@ def get_positions(N, variant):
     return positions
 
 
+def rotate_board(positions):
+    """Returns rotated positions."""
+    N = len(positions)
+    rotated = [[0, 0] for i in range(N)]
+
+    for i in range(N):
+        rotated[i][0] = positions[i][1]
+        rotated[i][1] = - positions[i][0] + (N - 1)
+
+    rotated = sorted(rotated, key=lambda x: x[0])
+
+    return rotated
+
+
 inp = sys.argv
-N = int(inp[1])  # check_input(inp)
+N = check_input(inp)
 
 variant = 0
+all_pos = []
 while variant < N:
     pos = get_positions(N, variant)
     y = pos[0][1]
     variant = y + 1
     valid = all([Queen[0] < N and Queen[1] < N for Queen in pos])
     if valid:
-        print(pos)
+        pos = sorted(pos, key=lambda x: x[0])
+        all_pos.append(pos)
+
+for pos in all_pos:
+    current_pos = pos
+    for i in range(3):
+        current_pos = rotate_board(current_pos)
+        different = True
+        for j in range(len(all_pos)):
+            if all_pos[j] == current_pos:
+                different = False
+        if different is True:
+            all_pos.append(current_pos)
+
+for pos in all_pos:
+    print(pos)
