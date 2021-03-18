@@ -60,7 +60,7 @@ def get_positions(N, variant):
 
 
 inp = sys.argv
-N = check_input(inp)
+N = int(inp[1])  # check_input(inp)
 
 variant = 0
 while variant < N:
