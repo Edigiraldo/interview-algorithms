@@ -45,6 +45,8 @@ avl_t *add_middle_value(avl_t **tree, int *array, int idx_l, int idx_r)
 	value = array[value_idx];
 
 	node = binary_tree_node(NULL, value);
+	if (node == NULL)
+		return (NULL);
 	if (*tree == NULL)
 		*tree = node;
 
