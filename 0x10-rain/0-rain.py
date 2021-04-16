@@ -12,11 +12,19 @@ def rain(walls):
 
     Return: Integer indicating total amount of rainwater retained.
     """
+    if len(walls) == 0:
+        return 0
 
     return rainwater(0, walls, 1)
 
+
 def rainwater(accumulated, walls, level):
-    """"""
+    """
+    - accumulated is the accumulated volume of first levels.
+    - walls is a list representing the walls.
+    - level is the current height where we want to compute the
+      enclosed volume for the walls of that height.
+    """
     n = len(walls)
     for left in range(n):
         if walls[left] >= level:
