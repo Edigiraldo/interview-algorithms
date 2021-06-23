@@ -16,6 +16,9 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
+    if not coins:
+        return -1
+
     coins.sort(reverse=True)
     if total < coins[-1]:
         return -1
