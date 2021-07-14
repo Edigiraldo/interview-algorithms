@@ -29,7 +29,7 @@ def island_perimeter(grid):
                     perimeter += 1
 
                 # not inferior column.
-                if i < m - 1:                   
+                if i < m - 1:
                     if grid[i + 1][j] == 0:
                         perimeter += 1
                 else:
