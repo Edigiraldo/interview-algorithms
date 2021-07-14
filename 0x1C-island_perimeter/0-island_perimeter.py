@@ -21,14 +21,14 @@ def island_perimeter(grid):
     for i in range(m):
         for j in range(n):
             if grid[i][j] == 1:
-                # not superior column.
+                # not superior row.
                 if i > 0:
                     if grid[i - 1][j] == 0:
                         perimeter += 1
                 else:
                     perimeter += 1
 
-                # not inferior column.
+                # not inferior row.
                 if i < m - 1:
                     if grid[i + 1][j] == 0:
                         perimeter += 1
